@@ -1,24 +1,29 @@
 {
   "name": "ember-redux-orm",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember cli shim for redux-orm",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "object",
+    "relational",
+    "model"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Thomas Chen",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/foxnewsnetwork/ember-redux-orm",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^5.1.7"
+    "ember-cli-babel": "^5.1.7",
+    "ember-cli-string-utils": "^1.0.0",
+    "inflection": "^1.10.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -41,7 +46,8 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "ember-welcome-page": "^1.0.3",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "redux-orm": "^0.9.0-rc.1"
   },
   "engines": {
     "node": ">= 0.12.0"

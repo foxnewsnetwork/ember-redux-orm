@@ -1,6 +1,8 @@
 # ember-redux-orm
 
-This README outlines the details of collaborating on this Ember addon.
+Front-end ORM? Yes please! Read about redux-orm here: https://github.com/tommikaikkonen/redux-orm
+
+If you're rolling ember-redux, consider using this as an alternative to ember-data
 
 ## Installation
 
