@@ -1,5 +1,7 @@
 # ember-redux-orm
 
+https://circleci.com/gh/foxnewsnetwork/ember-redux-orm.svg?style=shield
+
 Front-end ORM? Yes please! Read about redux-orm here: https://github.com/tommikaikkonen/redux-orm
 
 If you're rolling ember-redux, consider using this as an alternative to ember-data
