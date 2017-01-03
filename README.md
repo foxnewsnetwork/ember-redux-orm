@@ -1,6 +1,6 @@
 # ember-redux-orm
 
-https://circleci.com/gh/foxnewsnetwork/ember-redux-orm.svg?style=shield
+[![CircleCI](https://circleci.com/gh/foxnewsnetwork/ember-redux-orm.svg?style=svg)](https://circleci.com/gh/foxnewsnetwork/ember-redux-orm)
 
 Front-end ORM? Yes please! Read about redux-orm here: https://github.com/tommikaikkonen/redux-orm
 
