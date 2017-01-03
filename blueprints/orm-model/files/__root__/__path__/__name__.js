@@ -1,6 +1,6 @@
-import ORM from 'redux-orm';
+import { Model <%= otherImports.length ? ', ' + otherImports : '' %> } from 'redux-orm';
 
-export default class <%= moduleName %> extends ORM.Model {
+export default class <%= moduleName %> extends Model {
   static get modelName() {
     return '<%= moduleName %>';
   }

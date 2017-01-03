@@ -1,6 +1,6 @@
-import ORM from 'redux-orm';
+import { Model , fk, many, oneToOne } from 'redux-orm';
 
-export default class Taco extends ORM.Model {
+export default class Taco extends Model {
   static get modelName() {
     return 'Taco';
   }
@@ -8,9 +8,9 @@ export default class Taco extends ORM.Model {
   static get fields() {
     return {
       // declare relational fields here
-      filling: ORM.fk('Protein'),
-      toppings: ORM.many('Topping'),
-      eater: ORM.oneToOne('Person')
+      filling: fk('Protein'),
+      toppings: many('Topping'),
+      eater: oneToOne('Person')
     };
   }
 

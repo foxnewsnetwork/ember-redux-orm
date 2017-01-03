@@ -17,6 +17,7 @@ module.exports = {
     var attrs = [];
     var fields = [];
     var needs = [];
+    var otherImports = [];
     var moduleName = stringUtils.capitalize(stringUtils.camelize(options.entity.name));
     var entityOptions = options.entity.options;
 
@@ -40,12 +41,15 @@ module.exports = {
         var camelizedNamePlural = inflection.pluralize(camelizedName);
         field = ormAttr(camelizedForeignModelSingular, dasherizedType);
         fields.push(camelizedNamePlural + ': ' + field);
+        otherImports.push('many');
       } else if (/fk/.test(dasherizedType)) {
         field = ormAttr(camelizedForeignModelSingular, dasherizedType);
         fields.push(camelizedName + ': ' + field);
+        otherImports.push('fk');
       } else if (/one/.test(dasherizedType)){
         field = ormAttr(camelizedForeignModelSingular, dasherizedType);
         fields.push(camelizedName + ': ' + field);
+        otherImports.push('oneToOne');
       } else {
         attr = ormAttr(dasherizedName, dasherizedType);
         attrs.push(camelizedName + ': ' + attr);
@@ -60,12 +64,18 @@ module.exports = {
       return needs.indexOf(need) === i;
     });
 
+    var otherImportsDeduplicated = otherImports.filter(function(otherImport, i) {
+      return otherImports.indexOf(otherImport) === i;
+    });
+
     attrs = attrs.join(',' + EOL + '      ');
     fields = fields.join(',' + EOL + '      ');
     needs = '  needs: [' + needsDeduplicated.join(', ') + ']';
+    otherImports = otherImportsDeduplicated.join(', ');
 
     return {
       moduleName: moduleName,
+      otherImports: otherImports,
       attrs: attrs,
       fields: fields,
       needs: needs
@@ -77,11 +87,11 @@ function ormAttr(name, type) {
   var capName = stringUtils.capitalize(name);
   switch (type) {
   case 'fk':
-    return 'ORM.fk(\'' + capName + '\')';
+    return 'fk(\'' + capName + '\')';
   case 'many':
-    return 'ORM.many(\'' + capName + '\')';
+    return 'many(\'' + capName + '\')';
   case 'one':
-    return 'ORM.oneToOne(\'' + capName + '\')';
+    return 'oneToOne(\'' + capName + '\')';
   case '':
     return 'null';
   default:
