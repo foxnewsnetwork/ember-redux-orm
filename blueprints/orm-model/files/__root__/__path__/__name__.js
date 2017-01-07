@@ -1,4 +1,4 @@
-import { Model <%= otherImports.length ? ', ' + otherImports : '' %> } from 'redux-orm';
+import { Model<%= otherImports.length ? ', ' + otherImports : '' %> } from 'redux-orm';
 
 export default class <%= moduleName %> extends Model {
   static get modelName() {
@@ -7,15 +7,14 @@ export default class <%= moduleName %> extends Model {
 
   static get fields() {
     return {
-      // declare relational fields here
+      /**
+      * Attribute Fields
+      */
+    <%= attrs.length ? '  ' + attrs : '' %><%= attrs.length && fields.length ? ',' : '' %>
+      /**
+      * Relationship Fields
+      */
     <%= fields.length ? '  ' + fields : '' %>
-    };
-  }
-
-  static get dataFields() {
-    return {
-      // declare attribute fields here
-    <%= attrs.length ? '  ' + attrs : '' %>
     };
   }
 

@@ -53,6 +53,7 @@ module.exports = {
       } else {
         attr = ormAttr(dasherizedName, dasherizedType);
         attrs.push(camelizedName + ': ' + attr);
+        otherImports.push('attr');
       }
 
       if (/many|fk|one/.test(dasherizedType)) {
@@ -93,8 +94,8 @@ function ormAttr(name, type) {
   case 'one':
     return 'oneToOne(\'' + capName + '\')';
   case '':
-    return 'null';
+    return 'attr()';
   default:
-    return '\'' + type + '\'';
+    return 'attr({ type: \'' + type + '\' })';
   }
 }
