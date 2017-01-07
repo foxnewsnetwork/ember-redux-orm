@@ -1,6 +1,6 @@
 {
   "name": "ember-redux-orm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ember cli shim for redux-orm for building normalized orm data in your front-end ember app",
   "keywords": [
     "ember-addon",
