@@ -13,7 +13,7 @@ ember generate orm-model taco filling:fk:protein toppings:many:topping eater:one
 ```
 
 2. Register them in a Schema
-`app/orm-schema.js`
+`app/orm.js`
 ```javascript
 import { Schema } from 'redux-orm';
 import Taco from './orm-models/taco';
@@ -27,11 +27,11 @@ export default schema;
 3. Register your reducer
 `app/reducers/index.js`
 ```javascript
-import schema from '../orm-schema';
+import orm from '../orm';
 import otherReducer from './other-reducer';
 
 export default {
-  orm: schema.reducer(),
+  orm: orm.reducer(),
   otherNamespace: otherReducer
 };
 ```
@@ -41,10 +41,10 @@ export default {
 ember g orm-selector taco
 ```
 ```javascript
-import schema from '../orm-schema';
+import orm from '../orm';
 
 export function find(id) {
-  return schema.createSelector(session => {
+  return orm.createSelector(session => {
       return session.Taco.withId(id);
   });
 }
