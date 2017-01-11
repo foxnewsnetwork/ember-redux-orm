@@ -1,5 +1,5 @@
-import schema from '../orm-schema';
+import orm from '../orm';
 
-export default schema.createSelector(session => {
+export default orm.createSelector(session => {
     return session;
 });
