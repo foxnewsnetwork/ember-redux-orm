@@ -15,23 +15,24 @@ ember generate orm-model taco filling:fk:protein toppings:many:topping eater:one
 2. Register them in a Schema
 `app/orm.js`
 ```javascript
-import { Schema } from 'redux-orm';
+import { ORM } from 'redux-orm';
 import Taco from './orm-models/taco';
 
-const schema = new Schema();
-schema.register(Taco);
+const orm = new ORM();
+orm.register(Taco);
 
-export default schema;
+export default orm;
 ```
 
 3. Register your reducer
 `app/reducers/index.js`
 ```javascript
 import orm from '../orm';
+import { createReducer } from 'redux-orm';
 import otherReducer from './other-reducer';
 
 export default {
-  orm: orm.reducer(),
+  orm: createReducer(orm),
   otherNamespace: otherReducer
 };
 ```
@@ -42,12 +43,11 @@ ember g orm-selector taco
 ```
 ```javascript
 import orm from '../orm';
+import { createSelector } from 'redux-orm';
 
-export function find(id) {
-  return orm.createSelector(session => {
-      return session.Taco.withId(id);
-  });
-}
+export const findAll = createSelector(orm, session => session.Taco.all());
+
+export const find = (id) => (state) => orm.session(state).Taco.withId(id);
 ```
 
 5. Use your selector wherever it is you get getState
