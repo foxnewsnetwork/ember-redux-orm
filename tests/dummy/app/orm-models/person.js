@@ -19,11 +19,9 @@ export default class Person extends Model {
     };
   }
 
-  static reducer(state, action, Person) {
+  static reducer(action, Person) {
     if(action.type === 'CREATE_PERSON') {
       Person.create(action.payload);
     }
-
-    return Person.getNextState();
   }
 }

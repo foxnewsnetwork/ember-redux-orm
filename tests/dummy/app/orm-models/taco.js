@@ -22,9 +22,4 @@ export default class Taco extends Model {
       misc: null
     };
   }
-
-  static reducer(state, action, Taco) {
-    // Implement your reducer
-    return Taco.getNextState();
-  }
 }

@@ -1,7 +1,3 @@
-import schema from '../orm-schema';
+import orm from '../orm-schema';
 
-export function find(id) {
-  return schema.createSelector(session => {
-      return session.Person.withId(id);
-  });
-}
+export const find = (id) => (state) => orm.session(state).Person.withId(id);

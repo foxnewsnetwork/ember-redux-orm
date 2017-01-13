@@ -18,8 +18,11 @@ export default class <%= moduleName %> extends Model {
     };
   }
 
-  static reducer(state, action, <%= moduleName %>) {
-    // Implement your reducer
-    return <%= moduleName %>.getNextState();
+  static reducer(action, <%= moduleName %>, session) {
+    /**
+    * Important: a ORM reducer isn't a redux reducer!
+    * instead, it's used by redux-orm to build a redux-reducer
+    * Notice the different function signature!
+    */
   }
 }

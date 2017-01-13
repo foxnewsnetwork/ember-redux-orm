@@ -18,9 +18,4 @@ export default class Topping extends Model {
       flavor: 'string'
     };
   }
-
-  static reducer(state, action, Topping) {
-    // Implement your reducer
-    return Topping.getNextState();
-  }
 }

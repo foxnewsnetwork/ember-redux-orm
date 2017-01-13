@@ -8,7 +8,7 @@ export default class Protein extends Model {
   static get fields() {
     return {
       // declare relational fields here
-    
+
     };
   }
 
@@ -17,10 +17,5 @@ export default class Protein extends Model {
       // declare attribute fields here
       name: 'string'
     };
-  }
-
-  static reducer(state, action, Protein) {
-    // Implement your reducer
-    return Protein.getNextState();
   }
 }

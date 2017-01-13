@@ -1,5 +1,6 @@
-import schema from '../orm-schema';
+import orm from '../orm-schema';
+import { createReducer } from 'redux-orm';
 
 export default {
-  orm: schema.reducer()
+  orm: createReducer(orm)
 };

@@ -21,9 +21,4 @@ export default class Company extends Model {
       ceo: oneToOne('Person')
     };
   }
-
-  static reducer(state, action, Company) {
-    // Implement your reducer
-    return Company.getNextState();
-  }
 }
