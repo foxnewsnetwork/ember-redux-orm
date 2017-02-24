@@ -17,12 +17,4 @@ export default class <%= moduleName %> extends Model {
     <%= fields.length ? '  ' + fields : '' %>
     };
   }
-
-  static reducer(action, <%= moduleName %>, session) {
-    /**
-    * Important: a ORM reducer isn't a redux reducer!
-    * instead, it's used by redux-orm to build a redux-reducer
-    * Notice the different function signature!
-    */
-  }
 }
